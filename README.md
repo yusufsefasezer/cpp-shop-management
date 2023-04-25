@@ -7,6 +7,13 @@ A simple shop management application developed with Modern C++.
 ## Screenshot
 ![Windows](screenshot/windows.jpg)
 
+## How to compile
+
+```sh
+cmake .
+cmake . --build
+```
+
 # License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
 
