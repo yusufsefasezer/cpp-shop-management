@@ -16,9 +16,9 @@ namespace SHOPManagement
     class Shop
     {
     private:
-        std::string m_name;
-        std::string m_description;
-        Address *m_address;
+        std::string_view m_name;
+        std::string_view m_description;
+        std::shared_ptr<Address> m_address;
         std::vector<User *> v_users;
         std::vector<Product *> v_products;
         // std::vector <Order*> v_orders;
@@ -51,9 +51,9 @@ namespace SHOPManagement
 
     public:
         Shop() = default;
-        Shop(const std::string &t_name,
-             const std::string &t_description,
-             Address *t_address);
+        Shop(std::string_view t_name,
+             std::string_view t_description,
+             std::shared_ptr<Address> t_address);
 
         std::vector<User *> getUsers() const;
         std::vector<Product *> getProduct() const;

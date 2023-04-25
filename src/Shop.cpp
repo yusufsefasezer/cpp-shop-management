@@ -3,9 +3,9 @@
 namespace SHOPManagement
 {
 
-    Shop::Shop(const std::string &t_name,
-               const std::string &t_description,
-               Address *t_address)
+    Shop::Shop(std::string_view t_name,
+               std::string_view t_description,
+               std::shared_ptr<Address> t_address)
         : m_name(t_name),
           m_description(t_description),
           m_address(t_address) {}
@@ -670,8 +670,6 @@ namespace SHOPManagement
         {
             delete pUser;
         }
-
-        delete m_address;
     }
 
 }
