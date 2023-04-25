@@ -7,8 +7,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # set the project name
 project(CppShopManagement VERSION 0.1
-													DESCRIPTION "A simple shop management application developed with Modern C++."
-													LANGUAGES CXX)
+			  DESCRIPTION "A simple shop management application developed with Modern C++."
+			  LANGUAGES CXX)
 
 include_directories(include)
 
