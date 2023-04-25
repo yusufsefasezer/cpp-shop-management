@@ -9,6 +9,7 @@ using namespace std;
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <limits>
 #include "Helper.h"
 
 #endif // TYPES_H_INCLUDED
