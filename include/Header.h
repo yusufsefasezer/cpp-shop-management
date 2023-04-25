@@ -8,6 +8,7 @@
 #include <string>
 #include <algorithm>
 #include <limits>
+#include <memory>
 #include "Helper.h"
 
 #endif // TYPES_H_INCLUDED
