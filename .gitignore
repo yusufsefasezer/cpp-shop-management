@@ -2,3 +2,6 @@
 *.depend
 bin/
 obj/
+build/
+CMakeFiles/
+Makefile
