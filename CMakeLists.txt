@@ -1,17 +1,18 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
-if (CMAKE_VERSION VERSION_LESS "3.1")
-  add_definitions(-std=c++11)
-else()
-  set(CMAKE_CXX_STANDARD 11)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
-  set(CMAKE_CXX_EXTENSIONS OFF)
-endif()
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(CppShopManagement)
+# set the project name
+project(CppShopManagement VERSION 0.1
+													DESCRIPTION "A simple shop management application developed with Modern C++."
+													LANGUAGES CXX)
 
 include_directories(include)
 
+# set the files
 set(SOURCES
 	main.cpp
 	src/Address.cpp
