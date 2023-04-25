@@ -11,7 +11,8 @@ A simple shop management application developed with Modern C++.
 
 ```sh
 cmake .
-cmake . --build
+cmake --build .
+./CppShopManagement
 ```
 
 # License
