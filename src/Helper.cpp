@@ -3,131 +3,129 @@
 namespace SHOPManagement
 {
 
-string Helper::m_message = "";
+    std::string Helper::m_message = "";
 
-vector<string> Helper::split(const string &t_str,
-                             char t_delimeter)
-{
-    stringstream ss(t_str);
-    string item;
-    vector<string> splitted_strings;
-
-    while (getline(ss, item, t_delimeter))
+    std::vector<std::string> Helper::split(const std::string &t_str, char t_delimeter)
     {
-        splitted_strings.push_back(item);
-    }
+        std::stringstream ss(t_str);
+        std::string item;
+        std::vector<std::string> splitted_strings;
 
-    return splitted_strings;
-}
-
-vector<string> Helper::loadFileByLine(const string &file_path)
-{
-    ifstream file_data(file_path);
-    vector<string> lines;
-    string line;
-
-    if(!file_data.is_open())
-    {
-        cerr << file_path << " can't open!";
-        exit(EXIT_FAILURE);
-    }
-
-    while(getline(file_data, line))
-    {
-        lines.push_back(line);
-    }
-
-    file_data.close();
-    return lines;
-}
-
-bool Helper::saveFileByLine(const string &file_path, const vector<string> &t_data)
-{
-    ofstream file_data(file_path);
-
-    if(!file_data.is_open())
-    {
-        cerr << file_path << " can't open!";
-        exit(EXIT_FAILURE);
-    }
-
-    for(auto line : t_data)
-    {
-        file_data << line;
-        file_data << endl;
-    }
-
-    file_data.close();
-    return file_data.good();
-}
-
-int Helper::createMenu(const vector<string> &t_options)
-{
-    int choice = -1,
-        len = t_options.size();
-
-    do
-    {
-        cout << "### Menu ###" << endl;
-        for(int i = 0; i < len; i++)
+        while (getline(ss, item, t_delimeter))
         {
-            cout << (i + 1) << ". " << t_options[i] << endl;
+            splitted_strings.push_back(item);
         }
 
-        cout << "Enter your choice: ";
-        cin >> choice;
-        cin.ignore(numeric_limits<int>::max(), '\n');
-        cin.sync();
-
-        if(cin.fail())
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<int>::max(), '\n');
-            continue;
-        }
+        return splitted_strings;
     }
-    while(choice < 1 || choice > len);
 
-    return choice;
-}
+    std::vector<std::string> Helper::loadFileByLine(const std::string &file_path)
+    {
+        std::ifstream file_data(file_path);
+        std::vector<std::string> lines;
+        std::string line;
 
-bool Helper::findCaseInsensitive(const string &t_data, const string &t_search)
-{
-    string data_lower = t_data,
-           search_term_lower = t_search;
+        if (!file_data.is_open())
+        {
+            std::cerr << file_path << " can't open!";
+            exit(EXIT_FAILURE);
+        }
 
-    transform(data_lower.begin(), data_lower.end(), data_lower.begin(), ::tolower);
-    transform(search_term_lower.begin(), search_term_lower.end(), search_term_lower.begin(), ::tolower);
+        while (getline(file_data, line))
+        {
+            lines.push_back(line);
+        }
 
-    return data_lower.compare(search_term_lower);
-}
+        file_data.close();
+        return lines;
+    }
 
-void Helper::showMessage()
-{
-    int message_length =  Helper::m_message.size();
-    char prev;
+    bool Helper::saveFileByLine(const std::string &file_path, const std::vector<std::string> &t_data)
+    {
+        std::ofstream file_data(file_path);
 
-    if(message_length == 0)
-        return;
+        if (!file_data.is_open())
+        {
+            std::cerr << file_path << " can't open!";
+            exit(EXIT_FAILURE);
+        }
 
-    prev = cout.fill ('/');
-    cout.width (message_length);
-    cout << "" << endl;
-    cout.fill(prev);
+        for (auto line : t_data)
+        {
+            file_data << line;
+            file_data << std::endl;
+        }
 
-    cout << Helper::m_message << endl;
+        file_data.close();
+        return file_data.good();
+    }
 
-    prev = cout.fill ('\\');
-    cout.width (message_length);
-    cout << "" << endl;
-    cout.fill(prev);
+    int Helper::createMenu(const std::vector<std::string> &t_options)
+    {
+        int choice = -1,
+            len = t_options.size();
 
-    Helper::m_message = "";
-}
+        do
+        {
+            std::cout << "### Menu ###" << std::endl;
+            for (int i = 0; i < len; i++)
+            {
+                std::cout << (i + 1) << ". " << t_options[i] << std::endl;
+            }
 
-void Helper::clearScreen()
-{
-    system("cls||clear");
-}
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
+            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+            std::cin.sync();
+
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+                continue;
+            }
+        } while (choice < 1 || choice > len);
+
+        return choice;
+    }
+
+    bool Helper::findCaseInsensitive(const std::string &t_data, const std::string &t_search)
+    {
+        std::string data_lower = t_data,
+                    search_term_lower = t_search;
+
+        transform(data_lower.begin(), data_lower.end(), data_lower.begin(), ::tolower);
+        transform(search_term_lower.begin(), search_term_lower.end(), search_term_lower.begin(), ::tolower);
+
+        return data_lower.compare(search_term_lower);
+    }
+
+    void Helper::showMessage()
+    {
+        int message_length = Helper::m_message.size();
+        char prev;
+
+        if (message_length == 0)
+            return;
+
+        prev = std::cout.fill('/');
+        std::cout.width(message_length);
+        std::cout << "" << std::endl;
+        std::cout.fill(prev);
+
+        std::cout << Helper::m_message << std::endl;
+
+        prev = std::cout.fill('\\');
+        std::cout.width(message_length);
+        std::cout << "" << std::endl;
+        std::cout.fill(prev);
+
+        Helper::m_message = "";
+    }
+
+    void Helper::clearScreen()
+    {
+        system("cls||clear");
+    }
 
 }

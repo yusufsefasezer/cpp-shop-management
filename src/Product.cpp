@@ -3,8 +3,8 @@
 namespace SHOPManagement
 {
 
-Product::Product(const string &t_product_name,
-                 const string &t_product_description,
+Product::Product(const std::string &t_product_name,
+                 const std::string &t_product_description,
                  const long double &t_product_price,
                  const int &t_product_quantity)
     : m_name(t_product_name),
@@ -23,22 +23,22 @@ int Product::getID() const
     return this->m_id;
 }
 
-void Product::setName(const string &t_name)
+void Product::setName(const std::string &t_name)
 {
     this->m_name = t_name;
 }
 
-string Product::getName() const
+std::string Product::getName() const
 {
     return this->m_name;
 }
 
-void Product::setDescription(const string &t_description)
+void Product::setDescription(const std::string &t_description)
 {
     this->m_description = t_description;
 }
 
-string Product::getDescription() const
+std::string Product::getDescription() const
 {
     return this->m_description;
 }
@@ -65,11 +65,11 @@ int Product::getQuantity() const
 
 void Product::display()
 {
-    cout << "Product ID: " << this->getID() << endl;
-    cout << "Product Name: " << this->getName() << endl;
-    cout << "Product Description: " << this->getDescription() << endl;
-    cout << "Product Price: " << this->getPrice() << endl;
-    cout << "Product Quantity: " << this->getQuantity() << endl;
+    std::cout << "Product ID: " << this->getID() << std::endl;
+    std::cout << "Product Name: " << this->getName() << std::endl;
+    std::cout << "Product Description: " << this->getDescription() << std::endl;
+    std::cout << "Product Price: " << this->getPrice() << std::endl;
+    std::cout << "Product Quantity: " << this->getQuantity() << std::endl;
 }
 
 Product::~Product() {}

@@ -7,24 +7,24 @@
 namespace SHOPManagement
 {
 
-class Manager : public Person
-{
-public:
-    Manager() = default;
-    Manager(const string &t_user_name,
-            const string &t_user_pass,
-            const string &t_first_name,
-            const string &t_last_name,
-            const string &t_phone_number);
-
-    virtual void display();
-    virtual void operationMenu(Shop *t_shop);
-    virtual string className() const
+    class Manager : public Person
     {
-        return "Manager";
+    public:
+        Manager() = default;
+        Manager(const std::string &t_user_name,
+                const std::string &t_user_pass,
+                const std::string &t_first_name,
+                const std::string &t_last_name,
+                const std::string &t_phone_number);
+
+        virtual void display();
+        virtual void operationMenu(Shop *t_shop);
+        virtual std::string className() const
+        {
+            return "Manager";
+        };
+        virtual ~Manager();
     };
-    virtual ~Manager();
-};
 
 }
 #endif // MANAGER_H

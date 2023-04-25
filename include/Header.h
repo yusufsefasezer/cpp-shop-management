@@ -1,8 +1,6 @@
 #ifndef TYPES_H_INCLUDED
 #define TYPES_H_INCLUDED
 
-using namespace std;
-
 #include <iostream>
 #include <sstream>
 #include <fstream>
